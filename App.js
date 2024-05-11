@@ -7,10 +7,10 @@ function App() {
  
   return (
     <>
-  <div className='bg-slate-900'></div>
-  
-    <Header/>
-     
+  <div className='bg-slate-900'>
+  <Header/>
+  </div>
+   
     </>
   );
 };
