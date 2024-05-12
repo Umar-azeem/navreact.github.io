@@ -1,6 +1,12 @@
-import React from "react";
+import { DeviceTabletIcon } from "@heroicons/react/16/solid";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+
+
 const Header = () => {
+    const[click, setclick] = useState(false);
+    const handleClick = () => setclick(!click);
+    
     const content = <>
         <div className="lg:hidden block absolute top-16 w-full left-0 right-0 bg-slate-900 transition">
             <ul className="text-center text-xl p-20">
@@ -29,7 +35,7 @@ const Header = () => {
                     <div className="flex item-center flex-1">
                     <span className="text-3xl font-bold">Logo</span>
                     </div>
-                    <div className="lg:flex md:flex lg:flex-1 items-center justify-end font-normal hidden">
+                    <div className="lg:flex md:flex lg:flex-1  sm:flex-1 items-center justify-end font-normal hidden">
                         <div className="flex-10">
                             <ul className="flex gap-8 mr-16 text-[18px]">
                                 <Link  spy={true} smooth={true} to="Home">
@@ -50,6 +56,9 @@ const Header = () => {
                             </ul>
                         </div>
                     </div>
+                    <div>
+                        {click && content}
+                    </div>
 
                     <button className="block sm:hidden transition absolute right-10 top-10" onClick={handleClick}>
                         {click ? <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -59,7 +68,6 @@ const Header = () => {
 </svg>
 }
                     </button>
-        
                 </div>
             </nav>
         </>
