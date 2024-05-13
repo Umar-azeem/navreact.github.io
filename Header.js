@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 
 const Header = () => {
-    const[click, setclick] = useState(false);
-    const handleClick = () => setclick(!click);
+    const[isTrue, setclick] = useState(false);
+    const handleClick = () => setclick(isTrue == false ? true : false);
     
     const content = <>
         <div className="lg:hidden block absolute top-16 w-full left-0 right-0 bg-slate-900 transition">
@@ -57,11 +57,14 @@ const Header = () => {
                         </div>
                     </div>
                     <div>
-                        {click && content}
+                        {isTrue && content}
+                        {/* if (click == true){
+                            return content
+                        }*/}
                     </div>
 
                     <button className="block sm:hidden transition absolute right-10 top-10" onClick={handleClick}>
-                        {click ? <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                        {isTrue ? <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
 </svg> : <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
   <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
